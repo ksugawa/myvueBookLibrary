@@ -1,15 +1,10 @@
 <script setup>
+import HomeView from './view/HomeView.vue'
 
 </script>
 
 <template>
-  <header>
-
-  </header>
-
-  <main>
-
-  </main>
+<HomeView />
 </template>
 
 <style scoped>
