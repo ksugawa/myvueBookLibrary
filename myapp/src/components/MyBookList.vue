@@ -1,10 +1,16 @@
 <script setup>
+import { ref } from 'vue';
 import MyBookItem from './MyBookItem.vue';
+
+const books = ref([]);
+const hasBooks = ref(false);
+
+
 </script>
 
-<template v-if="active">
-        <ul class="book-list">
-            <MyBookItem />
+<template>
+        <ul v-if="hasBooks" class="book-list">
+            <MyBookItem v-for="book in books" :key="book.id" :title="book.title" :author="book.author" :review="book.review"/>
         </ul>
 </template>
 

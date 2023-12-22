@@ -9,8 +9,9 @@ const openModal = () => {
   isModalOpen.value = true;
 };
 
-const closeModal = () => {
-  isModalOpen.value = false;
+const handleFormSubmitted = (formData) => {
+    books.value.push(formData);
+    hasBooks.value = true;
 };
 </script>
 
@@ -25,7 +26,7 @@ const closeModal = () => {
             </div>
         
             <SearchMyBook />
-            <ModalView v-if="isModalOpen" :isModalOpen="isModalOpen" @closeModal="closeModal" />
+            <ModalView v-if="isModalOpen" :isModalOpen="isModalOpen" @closeModal="isModalOpen = false" @formSubmitted="handleFormSubmitted"/>
         </div>
 
     </aside>

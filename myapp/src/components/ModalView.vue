@@ -1,25 +1,15 @@
 <script setup>
-import { ref } from "vue";
-const { props, emit } = defineProps(["isModalOpen"]);
+import { defineProps, defineEmits } from "vue";
+import FormInput from "./FormInput.vue";
+const { isModalOpen } = defineProps(["isModalOpen"]);
+const emit = defineEmits();
 
 const closeModal = () => {
-  emit("closeModal", formData());
+  emit("closeModal");
 };
 
 const registerForm = "registerForm";
 
-const title = ref("");
-const author = ref("");
-const review = ref("");
-
-const formData = () => {
-  return { title: title.value, author: author.value, review: review.value };
-};
-
-const submit =(event) => {
-  event.preventDefault();
-  closeModal();
-};
 </script>
 
 <template>
@@ -33,31 +23,7 @@ const submit =(event) => {
       <button><img src="../assets/images/icon-add-b.svg" alt="" /></button>
       <p>本の画像を登録</p>
     </div>
-    <form :id="registerForm" action="">
-      <input
-        v-model="title"
-        type="text"
-        placeholder="題名を入力"
-        class="formInput"
-      />
-      <input
-        v-model="author"
-        type="text"
-        placeholder="著者を入力"
-        class="formInput"
-      />
-      <input type="text" placeholder="スコア" class="formInput" />
-      <textarea
-        name="review"
-        v-model="review"
-        id=""
-        cols="30"
-        rows="10"
-        class="formTextarea"
-        placeholder="レビューを入力"
-      ></textarea>
-      <button @click="submit" type="submit" class="submitBtn">登録</button>
-    </form>
+    <FormInput :id="registerForm"/>
   </div>
 </template>
 
@@ -78,32 +44,6 @@ const submit =(event) => {
   padding: 2rem;
 }
 
-#registerForm {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-end;
-}
-
-#registerForm input,
-textarea {
-  width: 100%;
-  margin: 1rem 0;
-}
-
-input.formInput,
-textarea.formTextarea {
-  border-bottom: 1px solid #ccc;
-}
-.submitBtn {
-  width: 132px;
-  padding: 4px 0;
-  border-radius: 40px;
-  border: 1px solid #232323;
-  border-radius: 40px;
-}
-
 .bookImgAttachArea {
   display: flex;
   flex-direction: column;
@@ -122,8 +62,11 @@ textarea.formTextarea {
   height: 36px;
 }
 
-.hidden {
-  opacity: 0;
-  pointer-events: none;
+#registerForm {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
 }
 </style>
