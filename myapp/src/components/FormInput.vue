@@ -1,65 +1,65 @@
-<script>
-export default {
-    name: 'FormInput',
-    props: [
-        'book'
-    ],
-    data() {
-        return {
-            title: '',
-            author: '',
-            review: ''
-        }
-    },
-    methods: {
-        submit() {
-            let book = {
-                title: this.title,
-                author: this.author,
-                review: this.review
-            };
+<script setup>
+import { ref } from "vue";
+import { useStore } from "vuex";
 
-            if (this.book && this.book.id) {
-                book.id = this.book.id
-            }
+const emit = defineEmits();
 
-            //this.$store.commit('submit', book)
-            this.$router.push('/')
-        }
-    }
-}
+const closeModal = () => {
+  emit("closeModal");
+};
+
+const store = useStore();
+
+const title = ref("");
+const author = ref("");
+const review = ref("");
+
+const submit = () => {
+  let book = {
+    title: title.value,
+    author: author.value,
+    review: review.value,
+  };
+
+  if (book.id) {
+    book.id = book.id;
+  }
+
+  store.commit("save", book);
+};
 </script>
 
 <template>
-    <form @submit.prevent="submit" action="">
-      <input
-        v-model="title"
-        type="text"
-        placeholder="題名を入力"
-        class="formInput"
-      />
-      <input
-        v-model="author"
-        type="text"
-        placeholder="著者を入力"
-        class="formInput"
-      />
-      <input type="text" placeholder="スコア" class="formInput" />
-      <textarea
-        name="review"
-        v-model="review"
-        id=""
-        cols="30"
-        rows="10"
-        class="formTextarea"
-        placeholder="レビューを入力"
-      ></textarea>
-      <button type="submit" class="submitBtn">登録</button>
-    </form>
+  <form @submit.prevent="submit" action="">
+    <input
+      name="title"
+      v-model="title"
+      type="text"
+      placeholder="題名を入力"
+      class="formInput"
+    />
+    <input
+      name="author"
+      v-model="author"
+      type="text"
+      placeholder="著者を入力"
+      class="formInput"
+    />
+    <input type="text" placeholder="スコア" class="formInput" />
+    <textarea
+      name="review"
+      v-model="review"
+      id=""
+      cols="30"
+      rows="10"
+      class="formTextarea"
+      placeholder="レビューを入力"
+    ></textarea>
+    <button @click="closeModal();" type="button" class="submitBtn">登録</button>
+  </form>
 </template>
 
 <style scoped>
-
 #registerForm input,
 textarea {
   width: 100%;

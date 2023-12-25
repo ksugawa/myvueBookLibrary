@@ -1,7 +1,8 @@
 <script setup>
-import { defineProps, defineEmits } from "vue";
 import FormInput from "./FormInput.vue";
+
 const { isModalOpen } = defineProps(["isModalOpen"]);
+
 const emit = defineEmits();
 
 const closeModal = () => {

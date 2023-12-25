@@ -3,13 +3,22 @@ defineProps(['title', 'author', 'review'])
 </script>
 
 <template>
-  <li>
+  <li class="book-item">
     <img src="" alt="">
-    <p>{{ title }}</p>
-    <p>{{ author }}</p>
+    <p class="titleText">{{ title }}</p>
+    <p class="authorText">{{ author }}</p>
     <div></div>
-    <p>{{ review }}</p>
+    <!-- <p class="reviewText">{{ review }}</p> -->
   </li>
 </template>
 
-<style scoped></style>
+<style scoped>
+.authorText {
+  font-size: 12px;
+  color: #7d7d7d;
+}
+
+.book-item {
+  width: 14%;
+}
+</style>
