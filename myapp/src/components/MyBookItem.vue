@@ -1,5 +1,8 @@
 <script setup>
-defineProps(['file','title', 'author', 'review'])
+defineProps(['file','title', 'author', 'rating', 'review'])
+
+
+//const starString = '★'.repeat(Math.round(Number(props.rating)));
 </script>
 
 <template>
@@ -7,6 +10,7 @@ defineProps(['file','title', 'author', 'review'])
     <img :src="file" alt="本の画像" class="book-image" />
     <p class="titleText">{{ title }}</p>
     <p class="authorText">{{ author }}</p>
+    <span>{{ starString }}</span>
     <div></div>
     <!-- <p class="reviewText">{{ review }}</p> -->
   </li>

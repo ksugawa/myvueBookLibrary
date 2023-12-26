@@ -46,7 +46,7 @@ const registerForm = "registerForm";
 }
 
 #registerForm {
+  width: 100%;
   text-align: right;
-  gap: 2rem;
 }
 </style>

@@ -22,6 +22,7 @@ const hasBooks = computed(() => {
       :file= "book.file"
       :title="book.title"
       :author="book.author"
+      :rating="book.rating"
       :review="book.review"
     />
   </ul>

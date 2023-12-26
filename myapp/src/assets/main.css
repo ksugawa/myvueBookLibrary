@@ -37,17 +37,24 @@ button {
 
 input,
 textarea {
+  width: 100%;
   border: none;
-  padding: 8px 
+  padding: 8px;
+  line-height: 1.5;
+  font-family: 'Noto Sans JP';
 }
 
-input[type=file] {
+input::placeholder,
+textarea::placeholder {
+  font-size: 14px;
+  color: #7d7d7d;
+ }
+
+input[type=file],
+input[type=radio] {
   display: none;
 }
 
-textarea {
-  border: none;
-}
 .flex-r {
   display: flex;
   justify-content: center;
@@ -56,6 +63,14 @@ textarea {
 
 .space-b {
   justify-content: space-between;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.text-g {
+  color: #7d7d7d;
 }
 
 
