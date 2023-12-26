@@ -18,11 +18,10 @@ import MyBookList from './MyBookList.vue';
 <style scoped>
 main {
     width: calc(100% - 18%);
+    height: 100vh;
     padding: 0 2rem;
     background-color: #F5F5F5;
-}
-
-h1 {
+    overflow: hidden;
 }
 
 .title {

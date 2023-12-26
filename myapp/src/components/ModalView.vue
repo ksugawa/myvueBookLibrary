@@ -20,10 +20,6 @@ const registerForm = "registerForm";
         <img src="../assets/images/icon-close.svg" />
       </button>
     </div>
-    <div class="bookImgAttachArea">
-      <button><img src="../assets/images/icon-add-b.svg" alt="" /></button>
-      <p>本の画像を登録</p>
-    </div>
     <FormInput :id="registerForm"/>
   </div>
 </template>
@@ -36,23 +32,9 @@ const registerForm = "registerForm";
   transform: translate(-50%, 50%);
   width: 58%;
   background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
   box-shadow: 0px 4px 20px 0px rgba(125, 125, 125, 0.25);
   z-index: 999;
   padding: 2rem;
-}
-
-.bookImgAttachArea {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 40%;
-  height: 418px;
-  background: #ccc;
 }
 
 .closeModalBtn {
@@ -64,10 +46,7 @@ const registerForm = "registerForm";
 }
 
 #registerForm {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-end;
+  text-align: right;
+  gap: 2rem;
 }
 </style>

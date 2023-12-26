@@ -19,6 +19,7 @@ const hasBooks = computed(() => {
     <MyBookItem
       v-for="book in books"
       :key="book.id"
+      :file= "book.file"
       :title="book.title"
       :author="book.author"
       :review="book.review"
@@ -31,8 +32,10 @@ const hasBooks = computed(() => {
   position: relative;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
+  gap: 2rem;
 }
 
 

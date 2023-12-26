@@ -1,10 +1,10 @@
 <script setup>
-defineProps(['title', 'author', 'review'])
+defineProps(['file','title', 'author', 'review'])
 </script>
 
 <template>
   <li class="book-item">
-    <img src="" alt="">
+    <img :src="file" alt="本の画像" class="book-image" />
     <p class="titleText">{{ title }}</p>
     <p class="authorText">{{ author }}</p>
     <div></div>

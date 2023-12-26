@@ -9,6 +9,15 @@
   font-weight: normal;
 }
 
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+h2 {
+  margin: 8px 0;
+}
+
 a {
   text-decoration: none;
   transition: 0.4s;
@@ -30,6 +39,10 @@ input,
 textarea {
   border: none;
   padding: 8px 
+}
+
+input[type=file] {
+  display: none;
 }
 
 textarea {
