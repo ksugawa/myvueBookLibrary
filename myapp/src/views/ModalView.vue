@@ -1,5 +1,5 @@
 <script setup>
-import FormInput from "./FormInput.vue";
+import FormInput from "../components/FormInput.vue";
 
 const { isModalOpen } = defineProps(["isModalOpen"]);
 

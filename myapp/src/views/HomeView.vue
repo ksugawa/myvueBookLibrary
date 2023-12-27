@@ -6,6 +6,6 @@ import MainArea from "../components/MainArea.vue";
 <template>
   <AsideArea />
   <MainArea />
-</template>
+  </template>
 
 <style scoped></style>
