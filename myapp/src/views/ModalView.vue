@@ -1,5 +1,5 @@
 <script setup>
-import FormInput from "../components/FormInput.vue";
+import FormBase from "../components/FormBase.vue";
 
 const { isModalOpen } = defineProps(["isModalOpen"]);
 
@@ -20,7 +20,7 @@ const registerForm = "registerForm";
         <img src="../assets/images/icon-close.svg" />
       </button>
     </div>
-    <FormInput :id="registerForm"/>
+    <FormBase :id="registerForm"/>
   </div>
 </template>
 
