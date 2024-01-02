@@ -10,6 +10,8 @@ import MyBookList from './MyBookList.vue';
         </div>
         <div class="own-library-contents">
             <h2>本棚</h2>
+                <router-link to="/mybooks" class="more-link">すべて見る</router-link>
+            </div>
             <MyBookList />
         </div>
     </main>

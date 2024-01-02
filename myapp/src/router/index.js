@@ -7,6 +7,17 @@ const routes = [
         name: 'home',
         component: HomeView
     },
+    {
+        path: '/mybooks',
+        name: 'mybooks',
+        component: () => import('../views/MyBooksView.vue')
+    },
+    {
+        path: '/mybooks/:id',
+        name: 'mybookpage',
+        component: () => import('../views/MyBookPageView.vue')
+
+    }
 ]
 
 const router = createRouter({

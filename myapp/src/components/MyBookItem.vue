@@ -6,12 +6,11 @@ defineProps(["file", "title", "author", "rating", "review"]);
 
 <template>
   <li class="book-item">
+    <router-link to="/mybooks/:id">
     <img :src="file" alt="本の画像" class="book-image" />
     <p class="titleText">{{ title }}</p>
     <p class="authorText">{{ author }}</p>
-    <span>{{ rating }}</span>
-    <div></div>
-    <!-- <p class="reviewText">{{ review }}</p> -->
+    </router-link>
   </li>
 </template>
 
