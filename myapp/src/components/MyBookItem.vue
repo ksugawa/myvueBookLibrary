@@ -1,17 +1,24 @@
 <script setup>
 defineProps(["file", "title", "author", "rating", "review"]);
 
-//const starString = '★'.repeat(Math.round(Number(props.rating)));
 </script>
 
 <template>
   <li class="book-item">
     <router-link to="/mybooks/:id">
-    <img :src="file" alt="本の画像" class="book-image" />
+      <img :src="file" alt="本の画像" class="book-image" />
       <div class="book-info">
   
-    <p class="titleText">{{ title }}</p>
-    <p class="authorText">{{ author }}</p>
+        <p class="titleText">{{ title }}</p>
+        <p class="authorText">{{ author }}</p>
+        <div class="labelRating">
+          <span
+            v-for="star in 5"
+            :key="star"
+            :class="{ selected: star <= rating }"
+          ></span>
+      </div>
+      </div>
     </router-link>
   </li>
 </template>

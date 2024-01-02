@@ -16,10 +16,10 @@ const setRating = (rating) => {
     <div class="labelRating">
       <p class="inline text-g">スコアを選択</p>
       <span
-        v-for="rating in 5"
-        :key="rating"
-        @click="setRating(rating)"
-        :class="{ selected: rating <= userRating }"
+        v-for="star in 5"
+        :key="star"
+        @click="setRating(star)"
+        :class="{ selected: star <= userRating }"
         v-bind="$attrs"
       >
       </span>
