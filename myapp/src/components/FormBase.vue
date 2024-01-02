@@ -108,18 +108,6 @@ const submit = () => {
           type="number"
           @update:userRating="updateRating"
         />
-        <!-- <label>
-          <div class="labelRating">
-            <p class="inline text-g">スコアを選択</p>
-            <span
-              v-for="star in 5"
-              :key="star"
-              @click="setRating(star)"
-              :class="{ selected: star <= userRating }"
-            >
-            </span>
-          </div>
-        </label> -->
         <form-textarea
           v-model="review"
           name="review"

@@ -35,18 +35,7 @@ const hasBooks = computed(() => {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  align-items: center;
   gap: 2rem;
 }
 
-
-.book-img {
-  height: 255px;
-  background-color: #ccc;
-}
-
-.author {
-  font-size: 9px;
-  color: #7d7d7d;
-}
 </style>

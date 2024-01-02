@@ -37,14 +37,6 @@ const handleFormSubmitted = (formData) => {
 </template>
 
 <style scoped>
-aside {
-  width: 18%;
-  padding: 0 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
 .menu {
   padding: 0 8px;
 }
