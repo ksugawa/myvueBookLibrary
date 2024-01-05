@@ -1,14 +1,12 @@
 <script setup>
 defineProps(["file", "title", "author", "rating", "review"]);
-
 </script>
 
 <template>
   <li class="book-item">
-    <router-link to="/mybooks/:id">
+    <!-- <router-link :to="{ name: 'mybookpage', params:{ id: book.id }}"> -->
       <img :src="file" alt="本の画像" class="book-image" />
       <div class="book-info">
-  
         <p class="titleText">{{ title }}</p>
         <p class="authorText">{{ author }}</p>
         <div class="labelRating">
@@ -17,9 +15,9 @@ defineProps(["file", "title", "author", "rating", "review"]);
             :key="star"
             :class="{ selected: star <= rating }"
           ></span>
+        </div>
       </div>
-      </div>
-    </router-link>
+    <!-- </router-link> -->
   </li>
 </template>
 
