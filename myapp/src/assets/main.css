@@ -64,6 +64,10 @@ input[type="radio"] {
   justify-content: space-between;
 }
 
+.start {
+  justify-content:flex-start;
+}
+
 .space-b {
   justify-content: space-between;
 }
@@ -83,11 +87,16 @@ input[type="radio"] {
 }
 
 #mainArea {
-  width: calc(100% - 18%);
   height: 100vh;
+  overflow: hidden;
+}
+
+#mainArea,
+#myBooksArea {
+  width: calc(100% - 18%);
   padding: 0 2rem;
   background-color: #F5F5F5;
-  overflow: hidden;
+
 }
 
 #asideArea {
@@ -97,8 +106,11 @@ input[type="radio"] {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   box-shadow: 5px 0 20px #7d7d7d;
+}
+
+#myBooksArea {
+  min-height: 100vh;
 }
 
 .labelRating span {
