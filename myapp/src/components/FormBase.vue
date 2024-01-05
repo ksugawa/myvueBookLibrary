@@ -56,11 +56,10 @@ const submit = () => {
     review: review.value,
   };
 
-  if (book.id) {
-    book.id = book.id;
-  }
+  book.id = book.id || null;
 
   store.commit("save", book);
+  closeModal();
 };
 </script>
 
@@ -118,7 +117,7 @@ const submit = () => {
         />
       </div>
     </div>
-    <button @click="closeModal()" type="submit" class="submitBtn">登録</button>
+    <button type="submit" class="submitBtn">登録</button>
   </form>
 </template>
 
@@ -201,7 +200,4 @@ rating css
 .labelRating span::before {
   font-size: 32px;
 }
-
-
-
 </style>
