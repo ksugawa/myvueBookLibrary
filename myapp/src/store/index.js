@@ -1,36 +1,36 @@
 import { createStore } from "vuex";
-// import { VuexPersistence } from "vuex-persist";
-
-// const vuexPersist = new VuexPersistence({
-//   storage: localStorage,
-// });
 
 export default createStore({
-    state: {
-        count: 0,
-        books: [],
-        searchBooks: "",
+  state: {
+    count: 0,
+    books: [],
+    SearchQuery: "",
+  },
+  getters: {
+    getCount: (state) => {
+      return state.books.length;
     },
-    getters: {
-      getCount: (state) => {
-        return state.books.length;
-      },
-      getAll: (state) => {
-        return state.books;
-      },
-      getSeachBooks: (state) => state.searchBooks,
+    getAll: (state) => {
+      return state.books;
     },
-    mutations: {
-      save (state, newBook) {
-        newBook.id = ++state.count;
-        state.books.unshift(newBook);
-      },
-      updateSearchBooks(state, query) {
-        state.searchBooks = query;
-      },
+    getSearchBooks: (state) => {
+      return state.books.filter((book) => {
+        return (
+          book.title.toLowerCase().includes(state.SearchQuery.toLowerCase()) ||
+          book.author.toLowerCase().includes(state.SearchQuery.toLowerCase())
+        );
+      });
     },
-    actions: {
+  },
+  mutations: {
+    save(state, newBook) {
+      newBook.id = ++state.count;
+      state.books.unshift(newBook);
     },
-    modules: {
-    }
+    updateSearchQuery(state, query) {
+      state.SearchQuery = query;
+    },
+  },
+  actions: {},
+  modules: {},
 });
