@@ -12,7 +12,12 @@ const myBooksArea = "myBooksArea";
   <div class="flex-r start">
     <AsideArea :id="asideArea" />
     <div :id="myBooksArea">
-      <SearchMyBook />
+      <div class="title">
+        <div class="flex-r end">
+          <SearchMyBook />
+          <div class="avator-icon"></div>
+        </div>
+      </div>
       <MyBookList />
     </div>
   </div>
@@ -21,5 +26,13 @@ const myBooksArea = "myBooksArea";
 <style scoped>
 body {
   background-color: #f5f5f5;
+}
+
+.container {
+  padding: 2rem 0;
+}
+
+.end {
+  justify-content: flex-end;
 }
 </style>

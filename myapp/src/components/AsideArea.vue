@@ -2,7 +2,7 @@
   <aside>
     <div>
       <router-link to="/">
-        <div class="avator-icon"></div>
+        <h1>BookLibrary</h1>
       </router-link>
     </div>
     <div class="menu">
@@ -16,7 +16,6 @@
       <ModalView
         v-if="isModalOpen"
         @closeModal="handleModalClose"
-        @formSubmitted="handleFormSubmitted"
       />
 
       <div v-if="isModalOpen" id="overlay" @click="closeModal"></div>
@@ -25,8 +24,8 @@
 </template>
 
 <script setup>
-import ModalView from "../views/ModalView.vue";
 import { ref } from "vue";
+import ModalView from "../views/ModalView.vue";
 
 const isModalOpen = ref(false);
 
@@ -42,13 +41,12 @@ const handleModalClose = () => {
   isModalOpen.value = false;
 }
 
-const handleFormSubmitted = (formData) => {
-  books.value.push(formData);
-  hasBooks.value = true;
-};
 </script>
 <style scoped>
-
+h1 {
+  padding-top: 2rem;
+  margin-bottom: 5rem;
+}
 .menu {
   width: 100%;
   padding: 0 8px;
@@ -58,13 +56,7 @@ const handleFormSubmitted = (formData) => {
   width: 32px;
 }
 
-.avator-icon {
-  width: 86px;
-  height: 86px;
-  border-radius: 999px;
-  background-color: #dfdfdf;
-  margin: 5rem 0;
-}
+
 
 #overlay {
   position: fixed;

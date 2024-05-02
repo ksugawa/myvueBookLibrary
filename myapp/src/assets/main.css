@@ -113,6 +113,11 @@ input[type="radio"] {
   min-height: 100vh;
 }
 
+.title {
+  padding: 2rem 0;
+  align-items: start;
+}
+
 .labelRating span {
   position: relative;
   cursor: pointer;
@@ -140,6 +145,15 @@ input[type="radio"] {
   padding: 8px 2.5rem;
   border-radius: 22px;
   line-height: 1.75;
+}
+
+.avator-icon {
+  width: 54px;
+  height: 54px;
+  margin-left: 2rem;
+  border-radius: 999px;
+  background-color: #dfdfdf;
+  cursor: pointer;
 }
 
 .icon-search {

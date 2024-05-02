@@ -10,7 +10,10 @@ import SearchMyBook from "./SearchMyBook.vue";
         <h1>こんにちは Kumikoさん！</h1>
         <p>あなただけの本棚を作りましょう</p>
       </div>
-      <SearchMyBook />
+      <div class="container flex-r">
+        <SearchMyBook />
+        <div class="avator-icon"></div>
+      </div>
     </div>
     <div class="own-library-contents">
       <div class="flex-r space">
@@ -23,11 +26,6 @@ import SearchMyBook from "./SearchMyBook.vue";
 </template>
 
 <style scoped>
-.title {
-  padding: 2rem 0;
-  align-items: start;
-}
-
 .own-library-contents {
   padding: 2rem 0;
 }
