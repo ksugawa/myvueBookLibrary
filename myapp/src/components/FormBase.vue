@@ -1,68 +1,3 @@
-<script setup>
-import { ref } from "vue";
-import { useStore } from "vuex";
-import FormInput from "./FormInput.vue";
-import FormTextarea from "./FormTextarea.vue";
-import FormRating from "./FormRating.vue";
-
-const emit = defineEmits();
-const store = useStore();
-
-const closeModal = () => {
-  emit("closeModal");
-};
-
-const title = ref("");
-const file = ref("");
-const author = ref("");
-const userRating = ref(0);
-const review = ref("");
-
-const uploadImage = (event) => {
-  const image = event.target.files[0];
-  createImage(image);
-};
-
-const createImage = (image) => {
-  const reader = new FileReader();
-  reader.readAsDataURL(image);
-  reader.onload = () => {
-    file.value = reader.result;
-  };
-};
-
-const updateTitle = (newTitle) => {
-  title.value = newTitle;
-};
-
-const updateAuthor = (newAuthor) => {
-  author.value = newAuthor;
-};
-
-const updateRating = (newRating) => {
-  userRating.value = newRating;
-};
-
-const updateReview = (newReview) => {
-  review.value = newReview;
-};
-
-const submit = () => {
-  let book = {
-    file: file.value,
-    title: title.value,
-    author: author.value,
-    rating: userRating.value,
-    review: review.value,
-  };
-
-  book.id = book.id || null;
-
-  store.commit("save", book);
-  closeModal();
-};
-</script>
-
 <template>
   <form @submit.prevent="submit" action="">
     <div class="form-contents">
@@ -120,6 +55,73 @@ const submit = () => {
     <button type="submit" class="submitBtn">登録</button>
   </form>
 </template>
+
+<script setup>
+import { ref } from "vue";
+import { useStore } from "vuex";
+import FormInput from "./FormInput.vue";
+import FormTextarea from "./FormTextarea.vue";
+import FormRating from "./FormRating.vue";
+
+const emit = defineEmits();
+const store = useStore();
+
+const submitAndClose = () => {
+  emit("submitAndClose");
+};
+
+const title = ref("");
+const file = ref("");
+const author = ref("");
+const userRating = ref(0);
+const review = ref("");
+
+const uploadImage = (event) => {
+  const image = event.target.files[0];
+  createImage(image);
+};
+
+const createImage = (image) => {
+  const reader = new FileReader();
+  reader.readAsDataURL(image);
+  reader.onload = () => {
+    file.value = reader.result;
+  };
+};
+
+const updateTitle = (newTitle) => {
+  title.value = newTitle;
+};
+
+const updateAuthor = (newAuthor) => {
+  author.value = newAuthor;
+};
+
+const updateRating = (newRating) => {
+  userRating.value = newRating;
+};
+
+const updateReview = (newReview) => {
+  review.value = newReview;
+};
+
+const submit = () => {
+  let book = {
+    file: file.value,
+    title: title.value,
+    author: author.value,
+    rating: userRating.value,
+    review: review.value,
+  };
+
+  book.id = book.id || null;
+
+  store.commit("save", book);
+  if (book) {
+    submitAndClose();
+  }
+};
+</script>
 
 <style scoped>
 label {

@@ -1,40 +1,7 @@
-<script setup>
-import { ref, computed, watch } from "vue";
-import { useStore } from "vuex";
-import MyBookItem from "./MyBookItem.vue";
-
-const store = useStore();
-const filteredBooks = ref([]);
-const searchBooks = ref("");
-
-const books = computed(() => {
-  return store.getters.getAll;
-});
-
-const hasBooks = computed(() => {
-  return store.getters.getCount;
-});
-
-watch(searchBooks, (newQuery) => {
-  if (!newQuery) {
-    // If search query is empty, show all books
-    filteredBooks.value = books.value;
-  } else {
-    // If search query is present, filter books based on the query
-    const query = newQuery.toLowerCase();
-    filteredBooks.value = books.value.filter(
-      (book) =>
-        book.title.toLowerCase().includes(query) ||
-        book.author.toLowerCase().includes(query)
-    );
-  }
-});
-</script>
-
 <template>
   <ul v-if="hasBooks" class="book-list">
     <MyBookItem
-      v-for="book in filteredBooks"
+      v-for="book in books"
       :key="book.id"
       :file="book.file"
       :title="book.title"
@@ -44,6 +11,24 @@ watch(searchBooks, (newQuery) => {
     />
   </ul>
 </template>
+
+<script setup>
+import { ref, computed } from "vue";
+import { useStore } from "vuex";
+import MyBookItem from "./MyBookItem.vue";
+
+const store = useStore();
+const SearchQuery = ref("");
+
+const books = computed(() => {
+  return SearchQuery.value ? store.getters.getSearchBooks : store.getters.getAll;
+});
+
+const hasBooks = computed(() => {
+  return books.value.length > 0;
+});
+
+</script>
 
 <style scoped>
 .book-list {

@@ -33,6 +33,7 @@ defineProps(["file", "title", "author", "rating", "review"]);
 
 .book-image {
   width: 100%;
+  height: 196px;
   margin-bottom: 8px;
   box-shadow: 0 5px 10px #7d7d7d;
 }
