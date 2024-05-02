@@ -57,11 +57,11 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
 import { useStore } from "vuex";
 import FormInput from "./FormInput.vue";
 import FormTextarea from "./FormTextarea.vue";
 import FormRating from "./FormRating.vue";
+import { title, file, author, userRating, review } from '../type/index';
 
 const emit = defineEmits();
 const store = useStore();
@@ -69,12 +69,6 @@ const store = useStore();
 const submitAndClose = () => {
   emit("submitAndClose");
 };
-
-const title = ref("");
-const file = ref("");
-const author = ref("");
-const userRating = ref(0);
-const review = ref("");
 
 const uploadImage = (event) => {
   const image = event.target.files[0];

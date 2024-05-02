@@ -1,8 +1,7 @@
 <script setup>
-import { ref } from 'vue'
+import { userRating } from '../type/index';
 
 const emit = defineEmits();
-const userRating = ref(0);
 
 const setRating = (rating) => {
   userRating.value = rating;
