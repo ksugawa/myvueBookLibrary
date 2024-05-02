@@ -7,6 +7,7 @@
         type="text"
         placeholder="題名、著者名で検索"
         id="searchInput"
+        @keydown.enter="searchBooks"
       />
       <img
         src="../assets/images/icon-search.svg"
@@ -24,25 +25,17 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
 import { useStore } from "vuex";
+import { keywords } from "../type/index";
 
-const keywords = ref("");
-const emit = defineEmits(["update:SearchQuery"]);
 const store = useStore();
 
-onMounted(() => {
-  const searchInput = document.getElementById("searchInput");
-  searchInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      store.commit("updateSearchQuery", keywords.value);
-      console.log(keywords.value);
-    }
-  });
-});
+const searchBooks = () => {
+  store.commit("updateSearchQuery", keywords.value);
+};
 
 const clearKeywords = () => {
-  console.log(keywords.value);
   keywords.value = "";
+  store.commit("updateSearchQuery", "")
 };
 </script>
